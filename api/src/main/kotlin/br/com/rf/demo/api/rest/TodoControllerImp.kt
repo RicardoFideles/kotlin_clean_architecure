@@ -18,13 +18,24 @@ class TodoControllerImp(
     private val getTodos: GetTodos
 ):TodoController {
 
-    override fun list(filter: TodoFilterDTO): CompletionStage<Pagination<Todo>> =
-        useCaseExecutor(
+    override fun list(filter: TodoFilterDTO): CompletionStage<Pagination<Todo>> {
+
+        val logger: Logger = LoggerFactory.getLogger(TodoController::class.java)
+
+        logger.debug("This is a debug message")
+        logger.info("This is an info message")
+        logger.warn("This is a warn message")
+        logger.error("This is an error message")
+
+
+        return useCaseExecutor(
             useCase = getTodos,
             requestDto = filter,
             requestConverter = {it.toFilter()},
             responseConverter = {it}
         )
+    }
+
 
 
 }
