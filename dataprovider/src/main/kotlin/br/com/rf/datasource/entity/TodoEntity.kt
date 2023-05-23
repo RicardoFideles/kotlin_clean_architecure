@@ -1,11 +1,8 @@
 package br.com.rf.datasource.entity
 
 import br.com.rf.model.Todo
-import jakarta.persistence.Column
-import jakarta.persistence.Entity
-import jakarta.persistence.Id
-import jakarta.persistence.Table
 import java.time.LocalDate
+import javax.persistence.*
 
 @Entity
 @Table(name = "TODO")
